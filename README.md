@@ -1,4 +1,4 @@
-# binance-tri-arbitrage
+# triangle-arbitrage-binance
 Arbitrage program in binance exchange
 
 ### upadte timeline
