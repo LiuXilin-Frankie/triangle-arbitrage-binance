@@ -1,5 +1,6 @@
 __author__ = 'AbsoluteX'
 __email__ = 'l276660317@gmail.com'
+# Also thanks my friend Lei Jie in this program
 
 import time
 import math
