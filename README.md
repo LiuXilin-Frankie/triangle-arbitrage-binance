@@ -11,3 +11,13 @@ Author: Lei Jie
 ### upadte timeline
 2021-12-30
 + Details will be provided later
+
+2022-02-21
++ update 2 py file and data
+
+### file info
+1. trading.py is used to trade
+2. data_collected.py is used to collect exchange data to find the arbitrage opportunity
+3. we also provide history data for you to analyse
+
+# We do not assume any risks that may exist in the investment process if you use this program !!!!
