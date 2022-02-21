@@ -16,8 +16,8 @@ Author: Lei Jie
 + update 2 py file and data
 
 ### file info
-1. trading.py is used to trade
-2. data_collected.py is used to collect exchange data to find the arbitrage opportunity
+1. trading_v15.py is used to trade
+2. data_collect.py is used to collect exchange data to find the arbitrage opportunity
 3. we also provide history data for you to analyse
 
 ## We do not undertake any risks that may exist in the investment process if you use this program !!!!
