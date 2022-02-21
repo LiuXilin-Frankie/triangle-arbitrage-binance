@@ -20,4 +20,4 @@ Author: Lei Jie
 2. data_collected.py is used to collect exchange data to find the arbitrage opportunity
 3. we also provide history data for you to analyse
 
-# We do not assume any risks that may exist in the investment process if you use this program !!!!
+## We do not undertake any risks that may exist in the investment process if you use this program !!!!
