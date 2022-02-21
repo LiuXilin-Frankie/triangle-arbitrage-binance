@@ -1,7 +1,7 @@
 # Triangle-Arbitrage-Binance
 Arbitrage program in binance exchange
 
-use pip install python-binance==0.7.10 to install SDK
+### use pip install python-binance==0.7.10 to install SDK
 
 Author: AbsoluteX
 + Email: 118020043@link.cuhk.edu.cn / l276660317@gmail.com
