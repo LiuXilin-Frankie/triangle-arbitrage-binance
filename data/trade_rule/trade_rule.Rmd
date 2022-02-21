@@ -1,0 +1,135 @@
+---
+title: "trade_rule"
+author: "LiuXilin118020043"
+date: "5/21/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(zoo)
+```
+
+
+```{r}
+#temp1 = read.csv("arbitrage_data_ETHBTC20210520.csv")
+temp1 = read.csv("arbitrage_data_BNBUSDT20210526.csv")
+temp1 = temp1 %>%
+  filter(time_cost<0.005)%>%
+  select(start_time,crypto_code,e_roi,time_cost,ask,ask_q,ask_1,ask_1_q,bid_2,bid_2_q,roi_30,roi_300)%>%
+  mutate(ask_notion = ask_1*ask_q,
+         bid_notion = bid_2_q*bid_2)
+
+notion = temp1%>%
+  select(start_time,crypto_code,time_cost,ask_notion,bid_notion,ask_q,e_roi,roi_30,roi_300)%>%
+  mutate(e_roi = e_roi-1.00225,
+         roi_30 = roi_30-1.00225,
+         roi_300 = roi_300-1.00225)%>%
+  filter(bid_notion>=0.001)%>%
+  filter(ask_notion>=0.02)%>%
+  mutate(time_gap = start_time-lag(start_time))
+notion
+```
+
+```{r}
+sum(notion$e_roi)
+sum(notion$roi_30)
+sum(notion$roi_300)
+```
+
+```{r}
+single_data = notion %>%
+  mutate(index = ifelse(crypto_code==lag(crypto_code),0,1))%>%
+  filter(index==1)%>%
+  mutate(return_eth = ask_notion*e_roi,
+         ret_30 = roi_30*ask_notion,
+         ret_300 = roi_300*ask_notion)
+single_data
+```
+```{r}
+sum(single_data$e_roi)
+sum(single_data$roi_30)
+sum(single_data$roi_300)
+sum(single_data$return_eth)
+sum(single_data$ret_30)
+sum(single_data$ret_300)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(zoo)
+temp1 = read.csv("arbitrage_data_BNBUSDT20210526.csv")
+temp1 = temp1 %>%
+  filter(time_cost<0.005)%>%
+  select(start_time,crypto_code,e_roi,time_cost,ask,ask_q,ask_1,ask_1_q,bid_2,bid_2_q,roi_30,roi_300)%>%
+  mutate(ask_notion = ask_1*ask_q,
+         bid_notion = bid_2_q*bid_2)
+
+notion = temp1%>%
+  select(start_time,crypto_code,time_cost,ask_notion,bid_notion,ask_q,e_roi,roi_30,roi_300)%>%
+  mutate(e_roi = e_roi-1.00225,
+         roi_30 = roi_30-1.00225,
+         roi_300 = roi_300-1.00225)%>%
+  filter(bid_notion>=10)%>%
+  filter(ask_notion>=0.05)%>%
+  mutate(time_gap = start_time-lag(start_time))
+notion
+```
+```{r}
+sum(notion$e_roi)
+sum(notion$roi_30)
+sum(notion$roi_300)
+```
+
+```{r}
+single_data = notion %>%
+  mutate(index = ifelse(crypto_code==lag(crypto_code),0,1))%>%
+  filter(index==1)%>%
+  mutate(return_eth = ask_notion*e_roi,
+         ret_30 = roi_30*ask_notion,
+         ret_300 = roi_300*ask_notion)
+single_data
+```
+```{r}
+sum(single_data$e_roi)
+sum(single_data$roi_30)
+sum(single_data$roi_300)
+sum(single_data$return_eth)
+sum(single_data$ret_30)
+sum(single_data$ret_300)
+```
+
+
+
+
+
+
+
+
+
+
+
+
