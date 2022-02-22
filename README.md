@@ -3,6 +3,8 @@ Arbitrage program in binance exchange
 
 ### use pip install python-binance==0.7.10 to install SDK
 
+author：AbsoluteX/ Lei Jie
+
 ### upadte timeline
 2021-12-30
 + Details will be provided later
